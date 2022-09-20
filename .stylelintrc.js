@@ -1,5 +1,5 @@
 module.exports = {
-    "extends": "stylelint-config-standard",
+    "extends": "/Volumes/Macintosh/Users/paulrobertlloyd/.atom/packages/linter-stylelint/node_modules/stylelint-config-standard",
     "plugins": ["stylelint-scss"],
     "rules": {
         "at-rule-no-unknown": null,
