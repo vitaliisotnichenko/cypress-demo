@@ -1,9 +1,6 @@
 module.exports = {
-    "extends": "stylelint-config-standard",
-    "plugins": ["stylelint-scss"],
+    "extends": "stylelint-config-recommended-scss",
     "rules": {
-        "at-rule-no-unknown": null,
-        "scss/at-rule-no-unknown": true,
-        "no-descending-specificity": null
+        "scss/at-if-no-null": null
     },
 }
