@@ -24,7 +24,7 @@ describe('Our first suite', () => {
             .click()
     })
 
-    it.only('then and wrap methods', () => {
+    it('then and wrap methods', () => {
         cy.contains('Forms').click()
         cy.contains('Form Layouts').click()
         cy.contains('nb-card', 'Using the Grid').then(firstForm => {
@@ -42,6 +42,33 @@ describe('Our first suite', () => {
                 cy.wrap(secondForm).find('[for="exampleInputPassword1"]').should('contain', 'Password')
             })
 
+        })
+    })
+
+    it('invoke command', () => {
+        cy.contains('Forms').click()
+        cy.contains('Form Layouts').click()
+        cy.get('[for="exampleInputEmail1"]').invoke('text').then(text => {
+            expect(text).to.equal('Email address')
+        })
+
+        cy.contains('nb-card', 'Basic form')
+            .find('nb-checkbox')
+            .click()
+            .find('.custom-checkbox')
+            .invoke('attr', 'class')
+            .should('contain', 'checked')
+
+    })
+
+    it('assert property', () => {
+        cy.contains('Forms').click()
+        cy.contains('Datepicker').click()
+
+        cy.contains('nb-card', 'Common Datepicker').find('input').then(input => {
+            cy.wrap(input).click()
+            cy.get('nb-calendar-day-picker').contains('17').click()
+            cy.wrap(input).invoke('prop', 'value').should('contain', '2022')
         })
     })
 })
