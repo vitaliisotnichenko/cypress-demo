@@ -99,7 +99,7 @@ describe('Our first suite', () => {
         cy.get('[type="checkbox"]').check({force: true})
     })
 
-    it.only('lists and dropdown', () => {
+    it('lists and dropdown', () => {
         cy.get('nav nb-select').click()
         cy.get('.options-list').contains('Dark').click()
         cy.get('nav nb-select').should('contain', 'Dark')
