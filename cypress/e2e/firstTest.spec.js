@@ -1,7 +1,7 @@
 
 describe('Our first suite', () => {
     beforeEach('', () => {
-        cy.visit('/')
+        cy.openHomePage()
     })
     it('First test', () => {
         cy.contains('Forms').click()
